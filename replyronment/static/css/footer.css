@@ -1,0 +1,118 @@
+/* Footer section */
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Noto+Sans&display=swap');
+
+/* Footer section */
+
+#footer {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    display: flex;
+    font-family: "Noto Sans", sans-serif;
+}
+
+#footer .container-footer {
+    width: 100%;
+    height: 400px;
+    margin: 0px auto;
+    margin-top: 100px;
+    color: #ffffff;
+    border-radius: 300px 0px 0px 0px;
+    background: #056257;
+}
+
+#footer .container-footer .left {
+    float: left;
+}
+
+#footer .container-footer .left,
+#footer .container-footer .right {
+    float: left;
+    display: block;
+    width: 50%;
+    margin: 0px auto;
+    height: 400px;
+}
+
+#footer .container-footer .left h4 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 150px 0px 0px 150px;
+}
+
+#footer .container-footer .left input {
+    font-family: "Noto sans", sans-serif;
+    color: gray;
+    font-style: italic;
+    margin: 10px 0px 0px 150px;
+    background: #e0f5ff;
+    width: 300px;
+    height: 40px;
+    border-radius: 40px 0px 0px 40px;
+    border-style: none;
+    box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.5);
+    padding-left: 10px;
+}
+
+#footer .container-footer .left button {
+    font-family: "Noto sans", sans-serif;
+    font-weight: bold;
+    height: 40px;
+    width: 110px;
+    margin-left: 3px;
+    color: #056257;
+    background: #ffffff;
+    border-radius: 0px 40px 40px 0px;
+    border-style: none;
+    box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+#footer .container-footer .right h6 {
+    font-family: "Noto sans", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#footer .container-footer .right .list {
+    display: block;
+    margin: 0px auto;
+}
+
+#footer .container-footer .right .list ul {
+    list-style-type: none;
+}
+
+#footer .container-footer .right .list ul li {
+    height: 60px;
+    margin-top: 30px;
+    margin-left: 20%;
+}
+
+#footer .container-footer .right .list ul li img {
+    width: 30px;
+    object-fit: cover;
+    display: block;
+    float: left;
+    margin-right: 20px;
+}
+
+#footer .container-footer .right .list ul li p {
+    float: left;
+    font-weight: lighter;
+    font-size: 18px;
+}
+
+#footer .container-footer .copyright {
+    display: block;
+    float: left;
+    background: #03352f;
+    height: 24px;
+    width: 100%;
+    margin: 0px auto;
+    font-family: "Merriweather", serif;
+    font-size: 15px;
+    text-align: center;
+    padding-top: 3px;
+}

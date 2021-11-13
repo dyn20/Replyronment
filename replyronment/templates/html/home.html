@@ -1,0 +1,27 @@
+{% include "html/navbar.html" %} {% load static %}
+<link rel="stylesheet" href="{%  static  'css/home.css'  %}">
+
+<body>
+
+    <div id="header">
+        <div class="container">
+            <div class="text">
+                <h2>Đã tới lúc đáp lời môi trường rồi đấy!</h2>
+                <p>Đây là nơi cung cấp tất tần tật kiến thức về môi trường. Giúp các bạn nâng cao ý thức bảo vệ môi trường đồng thời chia sẻ trách nhiệm gìn giữ không gian sống của chúng ta</p>
+            </div>
+            <div class="picture">
+                <img src="../../static/Images/Earth-3d.png" alt="Earth-art">
+            </div>
+            <div class="register">
+                {% if not user.is_authenticated %}
+                <a href="/register">Đăng kí</a>
+                <p>và tham gia cùng chúng mình ngay hôm nay nào!</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    {% include "html/footer.html" %}
+</body>
+
+</html>

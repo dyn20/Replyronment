@@ -1,0 +1,69 @@
+ {% load static %} {% include "html/navbar.html" %}
+<link rel="stylesheet" href="{%  static  'css/LandingPage.css'  %}">
+<div id="header">
+    <div class="container">
+        <p>Chú voi con ở Bản Đôn</p>
+    </div>
+</div>
+
+<div id="blog">
+    <div class="container">
+        <h3>Bạn muốn xem gì hôm nay?</h3>
+        <div class="container-brief">
+            <div class="brief">
+                <img src="../../static/Images/virus.jpg" alt="animated virus">
+                <h4>Covid-19 tác động đến khí quyển thế nào?</h4>
+                <p>Trước tình hình dịch Covid-19, lượng khí khải đã giảm đáng kể...</p>
+            </div>
+            <div class="brief">
+                <img src="../../static/Images/whale.jpg" alt="whale in the ocean">
+                <h4>Đại dương dạo gần đây đã có những thay đổi</h4>
+                <p>Hệ sinh thái ‘dưới nước’ đang dần lấy lại sức sống của mình, tỉ lệ sinh và tử thay đổi rõ rệt so với các năm gần đây...</p>
+            </div>
+            <div class="brief">
+                <img src="../../static/Images/jungle.jpg" alt="animated jungle">
+                <h4>Bạn đã biết về ‘lá phổi xanh’ của Trái Đất?</h4>
+                <p>Một khu rừng nhiệt đới với diện tích lớn nhất thế giới, được mệnh danh là ‘Lá phổi xanh’ của Trái Đất...</p>
+            </div>
+        </div>
+        <div class="more">
+            <p>Vẫn còn nhiều bài viết khác đang chờ các bạn!</p>
+            <a href="/Post">
+                <p>Tìm hiểu thêm tại đây</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<div id="game">
+    <div class="container">
+        <h3>Đọc đủ rồi thì giải trí một tí nhỉ</h3>
+        <div class="container-game">
+            <div class="game-info">
+                <div class="text-game">
+                    <h4>Kiểm tra sự thông thái về môi trường</h4>
+                    <p>Tham gia trả lời một vài câu hỏi đơn giản để nâng cấp kiến thức về môi trường của chính bạn</p>
+                </div>
+                <img src="../../static/Images/quiz-board.png" alt="quiz-board">
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<div id="forum">
+    <div class="container">
+        <h3>Giao lưu cùng với thế giới</h3>
+        <div class="forum-info">
+            <img src="../../static/Images/forum.png" alt="animated-person-on-PC">
+            <div class="forum-text">
+                <h4>Tham gia diễn đàn để gặp gỡ những con người thú vị</h4>
+                <p>Còn gì bằng khi có những người khác cùng đồng hành với mình trên con đường trở thành “học bá” về môi trường, vậy thì chần chờ gì mà không tham gia ngay cùng chúng mình nào!</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% include "html/footer.html" %}

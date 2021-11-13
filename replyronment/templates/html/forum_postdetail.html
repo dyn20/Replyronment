@@ -1,0 +1,41 @@
+{% include "html/navbar.html" %} {% load static %} {% block content %}
+<link rel="stylesheet" href="{%  static  'css/postdetail.css'  %}">
+<div class="container-bg">
+    <div class="container-post">
+        <div class="row">
+            <div>
+                <div class="card-body">
+                    <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
+                    <p class="author">Author: {{ post.author.username }}</p>
+                    <p class="date">{{ post.date }}</p>
+                    <p class="card-text ">{{ post.body | safe }}</p>
+                    <!-- featured image -->
+                </div>
+            </div>
+        </div>
+        <p>
+            <strong>Tags:</strong> {% for tag in post.tag.all %}
+            <a href="" class="tags">
+                {{tag.name}}
+            </a>
+            <!-- {% if not forloop.last %}, {% endif %} -->
+            {% endfor %}
+        </p>
+    </div>
+    <h2>Hãy để lại bình luận nào</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="content-cmt">
+            {{ comment_form.body }}
+        </div>
+        <div class="right-btn-cmt">
+            <input type="submit" class="btn-cmt" value="Đăng bình luận">
+        </div>
+    </form>
+    {% with comments.count as total_comments %}
+    <h3 class="mt-5">
+        {{ total_comments }} bình luận
+    </h3>
+    {% endwith %} {% if not post.forum_comments.all %} Chưa có bình luận nào. {% else %} {% for comment in post.get_comments %} {% include 'html/forum_comment.html' with comment=comment %} {% endfor %} {% endif %}
+</div>
+{% include "html/footer.html" %} {% endblock content %}

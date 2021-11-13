@@ -1,0 +1,30 @@
+<!-- javascript add -->
+{% load static %}
+<link rel="stylesheet" href="{%  static  'css/comment.css'  %}">
+<script src="{% static 'js/main.js'%}"></script>
+<div class="border-0 border-start border-2 ps-2" id="{{comment.id}}">
+
+    <div class="mt-3">
+        <strong>{{comment.name.username}}</strong> {% if comment.parent.name.username%} to <strong>{{comment.parent.name.username}}</strong>{% endif %}
+        <small class="text-muted">On {{ comment.created.date }}</small>
+    </div>
+    <div class="border p-2 rounded">
+        <p>{{comment.body}}</p>
+        <button id="fix-bt-btn" class="btn btn-primary btn-sm" onclick="handleReply({{comment.id}})">Trả lời</button>
+
+        <div id="reply-form-container-{{comment.id}}" style="display:none">
+
+            <form method="POST" action="{% url 'reply' %}" class="mt-3">
+                {% csrf_token %}
+                <input type="hidden" name="post_id" value="{{post.id}}">
+                <input type="hidden" name="parent" value="{{comment.id}}">
+                <input type="hidden" name="post_url" value="{{post.get_absolute_url}}"> {{comment_form.body}}
+                <div>
+                    <button type="button" id="fix-bt-btn" onclick="handleCancel({{comment.id}})" class="btn btn-light border btn-sm">Hủy</button>
+                    <button type="submit" id="fix-bt-btn" class="btn btn-primary btn-sm">Trả lời</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% for comment in comment.get_comments %} {% include 'html/comment.html' with comment=comment %} {% endfor %}
+</div>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    {% include "html/navbar.html" %}
+<head>
+    <title>Replyronment</title>
+    <link rel="stylesheet" href="https://fonts.google.com/noto/specimen/Noto+Sans?subset=vietnamese&query=Noto+sans">
+    <link rel="stylesheet" href="https://fonts.google.com/specimen/Merriweather?query=merri">
+    <link rel="stylesheet"  href="{%  static  'css/style.css'  %}">
+</head>
+<body>
+    <div class="container1">
+        <input type="checkbox" id="flip">
+        <div class="cover">
+          <div class="front">
+            <img src="../../static/Images/plants.jpg" alt="">
+            <div class="text">
+              <span class="text-1">Đã tới lúc<br>đáp lời môi trường rồi đấy!</span>
+              <span class="text-2">Tham gia cùng chúng mình nhé!</span>
+            </div>
+          </div>
+        </div>
+        <div class="forms" >
+            <div class="form-content">
+            <div class="signup-form">
+              <div class="title">Đăng ký</div>
+            <form method="POST">
+              {% csrf_token %}
+                <div class="input-boxes">
+                  <div class="input-box">
+                    <i class="fas fa-user"></i>
+                    {{form.username}}
+                  </div>
+                  <div class="input-box">
+                    <i class="fas fa-envelope"></i>
+                    {{form.email}}
+                  </div>
+                  <div class="input-box">
+                    <i class="fas fa-lock"></i>
+                    {{form.password1}}
+                  </div>
+                  <div class="input-box">
+                    <i class="fas fa-lock"></i>
+                    {{form.password2}}
+                  </div>
+                  <div class="button input-box">
+                    <input type="submit" value="Đăng ký">
+                  </div>
+                  <div class="text sign-up-text">Bạn đã có tài khoản? <label for="flip">Đăng nhập nhé</label></div>
+                </div>
+          </form>
+        </div>
+        </div>
+        </div>
+      </div>
+</body>
+{% include "html/footer.html" %}
+</html>

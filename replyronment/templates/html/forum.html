@@ -1,0 +1,17 @@
+{% include "html/navbar.html" %} {% load static %}
+<br>
+<div>
+    <a href="/Forum/createpost">Đăng bài</a> {% for post in Posts %}
+    <div class="card">
+        <div class="right">
+            <a href="{% url 'forumpostdetail' post.slug  %}">
+                <h3>{{post.title}}</h3>
+            </a>
+            <small>{{ post.author.username }}</small>
+        </div>
+        <h5>{{post.getday}}</h5>
+        <h6>{{post.getmonth}}</h6>
+    </div>
+    {% endfor %}
+</div>
+<br> {% include "html/footer.html" %}

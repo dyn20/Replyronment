@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Noto+Sans&display=swap');
+#header {
+    width: 100%;
+    min-height: 300px;
+    font-family: "Noto Sans", sans-serif;
+}
+
+#header .container {
+    display: block;
+    margin: 0px auto;
+    width: 1525px;
+    height: 600px;
+    border-radius: 400px 0px 660px 0px;
+    background: linear-gradient(120deg, #d2e69c 20%, #6aceb3 45%, #207ead 90%);
+}
+
+#header .text {
+    color: #056257;
+    float: left;
+    margin-left: 150px;
+}
+
+#header .text h2 {
+    font-family: "Merriweather", serif;
+    font-weight: normal;
+    font-size: 60px;
+    width: 900px;
+    height: 150px;
+    display: block;
+    margin-top: 130px;
+    margin-bottom: 0px;
+}
+
+#header .text p {
+    width: 800px;
+    height: 110px;
+    display: block;
+    font-size: 25px;
+    display: block;
+    margin: 0px;
+    margin-right: 0px;
+}
+
+#header .picture {
+    float: right;
+    border-radius: 100%;
+}
+
+#header .picture img {
+    object-fit: cover;
+    max-width: 430px;
+    height: 680px;
+    display: block;
+    margin-right: 45px;
+}
+
+#header .register {
+    color: #056257;
+    margin-left: 150px;
+    margin-top: 100px;
+}
+
+#header .register a {
+    text-decoration: none;
+    display: block;
+    border-radius: 40px;
+    text-align: center;
+    background: #ffffff;
+    color: #056257;
+    height: 60px;
+    width: 140px;
+    line-height: 60px;
+    font-weight: bold;
+    float: left;
+    margin-top: 50px;
+}
+
+#header .register a:hover {
+    background: #056257;
+    color: #ffffff;
+}
+
+#header .register p {
+    display: block;
+    float: left;
+    margin: 60px 0px 0px 10px;
+    font-size: 25px;
+}
+
+
+/* Features section */
+
+#feature {
+    width: 100%;
+    margin-top: 80px;
+}
+
+#feature .container {
+    width: 1300px;
+    margin: 0px auto;
+    min-height: 300px;
+}
+
+#feature .container h2 {
+    font-family: "Merriweather", serif;
+    font-size: 35px;
+    font-weight: bold;
+    text-shadow: 2px 2px 3px rgb(128, 128, 128, 0.5);
+    color: #056257;
+    text-align: center;
+}
+
+#feature .container .feature-card {
+    margin: 0px auto;
+    padding-top: 20px;
+}
+
+#feature .container .feature-card .card {
+    width: 280px;
+    height: 500px;
+    max-height: 1000px;
+    float: left;
+    margin-left: 110px;
+    border-style: none;
+    border-radius: 60px;
+    box-shadow: 2px 3px 6px rgb(128, 128, 128, 0.5);
+    color: #056257;
+}
+
+#feature .container .feature-card .card img {
+    width: 300px;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    margin: 0px auto;
+}
+
+#feature .container .feature-card .card h3 {
+    font-family: "Merriweather", serif;
+    font-size: 25px;
+    font-weight: normal;
+    text-align: center;
+    margin: 0px 0px 30px 0px;
+}
+
+#feature .container .feature-card .card p {
+    font-size: 20px;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#feature .container .feature-card .card:hover {
+    color: #ffffff;
+    background-image: linear-gradient( 120deg, #d2e69c 20%, #6aceb3 45%, #207ead 90%);
+}

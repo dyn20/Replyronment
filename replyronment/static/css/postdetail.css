@@ -1,0 +1,78 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+body {
+    background-color: #ffff;
+    font-family: Roboto;
+}
+
+.tags {
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+    position: relative;
+    margin: 0 16px 8px 0;
+    padding: 0 10px 0 12px;
+    background: #777;
+    -webkit-border-bottom-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    -webkit-border-top-right-radius: 3px;
+    border-top-right-radius: 3px;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-size: 12px;
+    text-decoration: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+}
+
+.container-bg {
+    padding: 2% 10%
+}
+
+.container-post {
+    padding: 30px 80px;
+    background-color: #fff;
+    box-shadow: 10px 10px 40px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+.card-body .author {
+    font-weight: bold;
+}
+
+.card-body .date {
+    font-style: italic;
+    font-size: smaller
+}
+
+textarea {
+    width: 70%;
+    height: 150px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+}
+
+.right-btn-cmt {
+    width: 70%;
+}
+
+.btn-cmt {
+    float: right;
+    text-decoration: none;
+    display: block;
+    border-radius: 40px;
+    text-align: center;
+    background-color: #056257;
+    color: #ffffff;
+    height: 40px;
+    width: 130px;
+    line-height: 40px;
+}
+
+.related-post {
+    margin: 70px auto;
+}

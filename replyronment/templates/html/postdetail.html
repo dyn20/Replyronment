@@ -1,72 +1,72 @@
-{% include "html/navbar.html" %} {% load static %} {% block content %}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css " rel="stylesheet " integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC " crossorigin="anonymous ">
+ {% load static %} {% block content %} {% include "html/navbar.html" %}
 <link rel="stylesheet" href="{%  static  'css/postdetail.css'  %}">
-<div class="container-bg">
-    <div class="container-post">
-        <div class="row">
-            <div>
-                <div class="card-body">
-                    <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
-                    <p class="author">Author: {{ post.author.username }}</p>
-                    <p class="date">{{ post.date }}</p>
-                    <p class="card-text ">{{ post.body | safe }}</p>
-                    <!-- featured image -->
+<div class="wrapper">
+    <div class="container-bg">
+        <div class="container-post">
+            <div class="row">
+                <div>
+                    <div class="card-body">
+                        <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
+                        <p class="author">Author: {{ post.author.username }}</p>
+                        <p class="date">{{ post.date }}</p>
+                        <p class="card-text ">{{ post.body | safe }}</p>
+                        <!-- featured image -->
+                    </div>
                 </div>
             </div>
-        </div>
-        <p>
-            <strong>Tags:</strong> {% for tag in post.tag.all %}
-            <a href="" class="tags">
+            <p>
+                <strong>Tags:</strong> {% for tag in post.tag.all %}
+                <a href="" class="tags">
                 {{tag.name}}
             </a>
-            <!-- {% if not forloop.last %}, {% endif %} -->
-            {% endfor %}
-        </p>
-    </div>
-    <div class="related-post">
-        <hr>
-        <div class="my-3">
-            <h2>Bài viết liên quan</h2>
+                <!-- {% if not forloop.last %}, {% endif %} -->
+                {% endfor %}
+            </p>
         </div>
-        <div class="row">
-            {% for post in similar_posts %}
-            <div class="col-md-6 col-sm-6 col-lg-4 mb-3">
-                <div class="card border-0">
-                    <div class="ratio ratio-16x9">
-                        <img src="{{ post.image.url }}" class="rounded featured-image-list" alt="{{post.title}}">
-                    </div>
-                    <div class="card-body p-0 m-0 mt-2">
-                        <h2 class="card-title h6 my-0 py-0">
-                            <a href="{{post.get_absolute_url}}">{{post.title}}</a>
-                        </h2>
-                        <p class="card-text">
-                            <small class="text-muted">
+        <div class="related-post">
+            <hr>
+            <div class="my-3">
+                <h2>Bài viết liên quan</h2>
+            </div>
+            <div class="row">
+                {% for post in similar_posts %}
+                <div class="col-md-6 col-sm-6 col-lg-4 mb-3">
+                    <div class="card border-0">
+                        <div class="ratio ratio-16x9">
+                            <img src="{{ post.image.url }}" class="rounded featured-image-list" alt="{{post.title}}">
+                        </div>
+                        <div class="card-body p-0 m-0 mt-2">
+                            <h2 class="card-title h6 my-0 py-0">
+                                <a href="{{post.get_absolute_url}}">{{post.title}}</a>
+                            </h2>
+                            <p class="card-text">
+                                <small class="text-muted">
                         <span>{{post.date}} by
                             <b>{{post.author}}</b></span>
                     </small>
-                        </p>
+                            </p>
+                        </div>
                     </div>
                 </div>
+                {% empty %}
+                <p class="text-muted">Chưa có bài viết liên quan</p>
+                {% endfor %}
             </div>
-            {% empty %}
-            <p class="text-muted">There is no similar post yet</p>
-            {% endfor %}
         </div>
+        <h2>Hãy để lại bình luận nào</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="content-cmt">
+                {{ comment_form.body }}
+            </div>
+            <div class="right-btn-cmt">
+                <input type="submit" class="btn-cmt" value="Đăng bình luận">
+            </div>
+        </form>
+        {% with comments.count as total_comments %}
+        <h3 class="mt-5">
+            {{ total_comments }} bình luận
+        </h3>
+        {% endwith %} {% if not post.comments.all %} Chưa có bình luận nào. {% else %} {% for comment in post.get_comments %} {% include 'html/comment.html' with comment=comment %} {% endfor %} {% endif %}
     </div>
-    <h2>Hãy để lại bình luận nào</h2>
-    <form method="POST">
-        {% csrf_token %}
-        <div class="content-cmt">
-            {{ comment_form.body }}
-        </div>
-        <div class="right-btn-cmt">
-            <input type="submit" class="btn-cmt" value="Đăng bình luận">
-        </div>
-    </form>
-    {% with comments.count as total_comments %}
-    <h3 class="mt-5">
-        {{ total_comments }} bình luận
-    </h3>
-    {% endwith %} {% if not post.comments.all %} Chưa có bình luận nào. {% else %} {% for comment in post.get_comments %} {% include 'html/comment.html' with comment=comment %} {% endfor %} {% endif %}
-</div>
-{% include "html/footer.html" %} {% endblock content %}
+</div> {% endblock content %} {% include "html/footer.html" %}

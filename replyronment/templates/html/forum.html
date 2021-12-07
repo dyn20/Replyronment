@@ -1,17 +1,54 @@
 {% include "html/navbar.html" %} {% load static %}
-<br>
-<div>
-    <a href="/Forum/createpost">Đăng bài</a> {% for post in Posts %}
-    <div class="card">
-        <div class="right">
-            <a href="{% url 'forumpostdetail' post.slug  %}">
-                <h3>{{post.title}}</h3>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<link rel="stylesheet" href="{%  static  'css/forum.css'  %}">
+
+<body>
+    <div class="wrapper">
+        <div class="forum-container">
+            <div class="search-bar">
+                <form action="/Forum">
+                    <div class="search-box">
+                        <div class="cancel-icon">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <input class="form-control mr-0" type="search" value="{{request.GET.q}}" name="q" placeholder="Bạn muốn tìm kiếm gì..." aria-label="Search">
+                        <div class="search-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <a href="/Forum/createpost" class="css-button">
+                <span class="css-button-icon"><i class="fas fa-pen"></i></span>
+                <span class="css-button-text">Đăng bài</span>
             </a>
-            <small>{{ post.author.username }}</small>
+            <div class="card-post">
+                {% for post in Posts %}
+                <div class="element">
+                    <div class="content">
+                        <div class="author">
+                            <img src="{{ post.author.profile.avatar.url }}" alt="something">
+                            <p>{{post.author.username}}</p>
+                        </div>
+                        <a href="{% url 'forumpostdetail' post.slug  %}" class="title">
+                    {{post.title}}
+                </a>
+                        <div>{% for tag in post.tag.all %}
+
+                            <p class="tags">
+                                {{tag.name}}
+                            </p>
+                            <!-- {% if not forloop.last %}, {% endif %} -->
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+            </div>
         </div>
-        <h5>{{post.getday}}</h5>
-        <h6>{{post.getmonth}}</h6>
+        <script src="{% static 'js/searchbar.js '%}"></script>
     </div>
-    {% endfor %}
-</div>
-<br> {% include "html/footer.html" %}
+</body>
+{% include "html/footer.html" %}

@@ -1,58 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-    {% load static %}
-    {% include "html/navbar.html" %}
-<head>
-    <title>Replyronment</title>
-    <link rel="stylesheet" href="https://fonts.google.com/noto/specimen/Noto+Sans?subset=vietnamese&query=Noto+sans">
-    <link rel="stylesheet" href="https://fonts.google.com/specimen/Merriweather?query=merri">
-    <link rel="stylesheet"  href="{%  static  'css/style.css'  %}">
-</head>
+{% include "html/navbar.html" %} {% load static %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{%  static  'css/style.css'  %}">
+
 <body>
-    <div class="container1">
-        <input type="checkbox" id="flip">
-        <div class="cover">
-          <div class="front">
-            <img src="../../static/Images/plants.jpg" alt="">
-            <div class="text">
-              <span class="text-1">Đã tới lúc<br>đáp lời môi trường rồi đấy!</span>
-              <span class="text-2">Tham gia cùng chúng mình nhé!</span>
-            </div>
-          </div>
-        </div>
-        <div class="forms" >
-            <div class="form-content">
-            <div class="signup-form">
-              <div class="title">Đăng ký</div>
-            <form method="POST">
-              {% csrf_token %}
-                <div class="input-boxes">
-                  <div class="input-box">
-                    <i class="fas fa-user"></i>
-                    {{form.username}}
-                  </div>
-                  <div class="input-box">
-                    <i class="fas fa-envelope"></i>
-                    {{form.email}}
-                  </div>
-                  <div class="input-box">
-                    <i class="fas fa-lock"></i>
-                    {{form.password1}}
-                  </div>
-                  <div class="input-box">
-                    <i class="fas fa-lock"></i>
-                    {{form.password2}}
-                  </div>
-                  <div class="button input-box">
-                    <input type="submit" value="Đăng ký">
-                  </div>
-                  <div class="text sign-up-text">Bạn đã có tài khoản? <label for="flip">Đăng nhập nhé</label></div>
+    <div id="main-wrapper" class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-10">
+                <div class="card border-0">
+                    <div class="card-body p-0">
+                        <div class="row no-gutters">
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="mb-5">
+                                        <h3 class="h4 font-weight-bold text-theme">Đăng ký</h3>
+                                    </div>
+
+                                    <form method="POST">
+                                        {% csrf_token %} {% for key, value in form.errors.items %} {{value}} {% endfor %}
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Tên đăng nhập</label> {{form.username}}
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Email</label> {{form.email}}
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Mật Khẩu</label> {{form.password1}}
+                                        </div>
+                                        <div class="form-group mb-5">
+                                            <label for="exampleInputPassword1">Nhập lại mật khẩu</label> {{form.password2}}
+                                        </div>
+                                        <button type="submit" class="btn btn-theme">Đăng ký</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 d-none d-lg-inline-block">
+                                <div class="account-block rounded-right">
+                                    <div class="overlay rounded-right"></div>
+                                    <div class="account-testimonial">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- end card-body -->
                 </div>
-          </form>
+                <!-- end card -->
+
+                <p class="text-muted text-center mt-3 mb-0">Bạn đã có tài khoản <a href="/login" class="text-primary ml-1">Đăng nhập</a></p>
+
+                <!-- end row -->
+
+            </div>
+            <!-- end col -->
         </div>
-        </div>
-        </div>
-      </div>
+        <!-- Row -->
+    </div>
+
 </body>
 {% include "html/footer.html" %}
-</html>

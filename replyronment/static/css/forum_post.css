@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Noto+Sans&display=swap');
+.form-post {
+    margin: 100px;
+    padding: 100px;
+    font-family: "Noto Sans";
+}
+
+.form-post .submitbtn {
+    padding: 5px 10px;
+    border: none;
+    background-color: #056257;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.form-post .title input {
+    border-radius: 20px;
+}
+
+.form-post .tags input {
+    border-radius: 20px;
+}
+
+@media screen and (max-width:767px) {
+    .form-post {
+        padding-top: 100px;
+        padding-left: 0px;
+        padding-right: 0px;
+        font-size: 15px;
+    }
+    .form-post form {
+        margin: auto 10px;
+    }
+    .form-post .submitbtn {
+        font-size: 15px;
+    }
+}

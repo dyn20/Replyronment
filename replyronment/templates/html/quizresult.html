@@ -1,0 +1,20 @@
+ {% include "html/navbar.html" %} {% load static %}
+<link rel="stylesheet" href="{%  static  'css/Quizresult.css'  %}">
+<div class="container question">
+    <div class="card-columns" style="padding: 10px; margin: 20px;">
+        <div>
+            <div class="card-body">
+                <ul>
+                    <li class="user"><img src="{{ user.profile.avatar.url }}"> {{user.username}}</li>
+                    <li class="card-text">Điểm số: {{score}}</li>
+                    <li class="card-text">Câu trả lời đúng: {{correct}}</li>
+                    <li class="card-text">Câu trả lời sai: {{wrong}}</li>
+                    <li class="card-text">Tất cả câu hỏi: {{total}}</li>
+                    <a href="http://localhost:8000/Quiz/?q=bat-dau-quiz"><i class="fas fa-arrow-left"></i> Trở về Quiz</a>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% include "html/footer.html" %}

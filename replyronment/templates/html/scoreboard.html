@@ -1,0 +1,35 @@
+{% include "html/navbar.html" %} {% load static %}
+
+<body>
+    <link rel="stylesheet" href="{%  static  'css/scoreboard.css'  %}">
+    <div class="scoreboard">
+        <h1 class="text-center pb-4">Bảng xếp hạng</h1>
+        <div class="container mt-3">
+            <div class="table-responsive">
+                <table class="table table-striped custom">
+                    <thead class="customthead">
+                        <tr>
+                            <th scope="col">Thứ hạng</th>
+                            <th scope="col">Người chơi</th>
+                            <th scope="col">Điểm số</th>
+                            <th scope="col">Câu đúng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for u in users %}
+                        <tr>
+                            <th scope="row">{{u.getrank}}</th>
+                            <td>{{ u.user.username }}</td>
+                            <td>{{ u.score }}</td>
+                            {% with u.Correct_ques.count as total %}
+                            <td>{{ total }}</td>
+                            {% endwith %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+{% include "html/footer.html" %}

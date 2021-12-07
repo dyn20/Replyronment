@@ -1,28 +1,47 @@
 {% include "html/navbar.html" %} {% load static %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 <link rel="stylesheet" href="{%  static  'css/postlist.css'  %}">
-<div>
-    {% block content %} {% for post in Posts %}
-    <form class="d-flex" action="/Post">
-        <input class="form-control mr-0" type="search" value="{{request.GET.q}}" name="q" placeholder="Search" aria-label="Search">
-    </form>
-    <div class="card">
-        <div class="thumbnail">
-            <a href="{% url 'post_detail' post.slug  %}"><img class="left" src="{{ post.image.url }}" alt="something"></a>
-        </div>
-        <div class="right">
-            <a href="{% url 'post_detail' post.slug  %}">
-                <h1>{{post.title}}</h1>
-            </a>
-            <div class="author">
-                <img src="{{ post.author.profile.avatar.url }}" alt="something">
-                <h2>{{post.author.username}}</h2>
+<link rel="stylesheet" href="{%  static  'css/searchbar.css'  %}">
+<div class="wrapper">
+    <div class="slogan">
+        <h1>Bảo vệ môi trường<br> là bảo vệ chính chúng ta</h1>
+    </div>
+    <hr>
+    <div class="container-search-box">
+        <form action="/Post">
+            <div class="search-box">
+                <input class="form-control mr-0" type="search" value="{{request.GET.q}}" name="q" placeholder="Bạn muốn tìm kiếm gì..." aria-label="Search">
+                <div class="search-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="cancel-icon">
+                    <i class="fas fa-times"></i>
+                </div>
             </div>
-            <div class="separator">
-                <p>{{post.body|safe|slice:":300"}}</p>
+        </form>
+    </div>
+    {% for post in Posts %}
+    <div class='customHeight'>
+        <div class='row' id="box">
+            <div class='col-sm-4 custom' style="background-image: url({{post.image.url}});background-size: cover;">
+                <div class='dateHolder'>{{post.getday}} {{post.getmonth|slice:":3"}}</div>
+            </div>
+            <div class='col-sm-8'>
+                <div class='row '>
+                    <a href="{% url 'post_detail' post.slug  %}">
+                        <h3 class="title">{{post.title}}</h3>
+                    </a>
+                </div>
+                <div class="row author"> {{post.author.username}}</div>
+                <div class="row bottomGap">{{post.body|safe|slice:":200"}}</div>
+                <div class='row more'>
+                    <a href="{% url 'post_detail' post.slug  %}">Xem thêm</a>
+                </div>
             </div>
         </div>
-        <h5>{{post.getday}}</h5>
-        <h6>{{post.getmonth}}</h6>
     </div>
     {% endfor %}
-</div> {% include "html/footer.html" %} {% endblock %}
+    <script src="{% static 'js/searchbar.js '%}"></script>
+</div>
+</body>
+{% include "html/footer.html" %}

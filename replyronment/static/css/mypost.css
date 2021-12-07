@@ -1,0 +1,78 @@
+.mypost-container {
+    margin: 0px 150px;
+    padding-top: 150px;
+    height: 100vh;
+}
+
+.card-post .element {
+    position: relative;
+    background-color: #E8F6EF;
+    border-radius: 20px;
+    border: 1px solid #B8DFD8;
+    margin: 20px auto;
+}
+
+.card-post .element .content {
+    padding: 20px 20px;
+}
+
+.title {
+    font-size: 25px;
+}
+
+.tags {
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    position: relative;
+    margin: 0 5px 8px 0;
+    padding: 0 10px 0 12px;
+    background: #777;
+    -webkit-border-bottom-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    -webkit-border-top-right-radius: 3px;
+    border-top-right-radius: 3px;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    font-size: 12px;
+    text-decoration: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.author {
+    background-color: #6ACEB3;
+    height: 30px;
+    width: 110px;
+    border-radius: 20px
+}
+
+.author img {
+    padding-top: 5px;
+    margin-left: 10px;
+    float: left;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%
+}
+
+.author p {
+    padding-top: 8px;
+    margin-right: 6px;
+    text-align: center;
+    font-size: 12px;
+    color: white
+}
+
+@media screen and (max-width:767px) {
+    .mypost-container {
+        margin: auto 10px;
+        padding-top: 100px;
+    }
+    .card-post .element .content .title {
+        font-size: 15px;
+    }
+    .card-post .element .content {
+        padding: 10px 10px;
+    }
+}

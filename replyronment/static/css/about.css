@@ -1,0 +1,251 @@
+.wrapper {
+    padding-top: 150px;
+}
+
+
+/* Who? section */
+
+#who {
+    width: 100%;
+    margin: auto auto;
+}
+
+#who .container {
+    width: 80%;
+    margin: auto auto;
+    border: 1px solid #ffffff;
+    border-radius: 0rem 2.5rem 0rem 2.5rem;
+    box-shadow: 2px 2px 4px rgb(128, 128, 128, 0.5);
+    transition: all 0.5s;
+    color: #056257;
+}
+
+#who .container:hover {
+    color: #ffffff;
+    background-image: linear-gradient( 120deg, #d2e69c 20%, #6aceb3 45%, #207ead 90%);
+}
+
+#who .container .text,
+#who .container .image {
+    display: inline-block;
+    width: 45%;
+}
+
+#who .container .text {
+    margin: 10rem 5rem 10rem 2rem;
+    width: 25rem;
+}
+
+#who .container .text h3 {
+    font-family: "Merriweather", serif;
+    font-size: 2.5rem;
+    color: #1f7360;
+    margin: 0.75rem 0rem;
+    font-weight: normal;
+}
+
+#who .container .text p {
+    font-size: 1.5rem;
+}
+
+#who .container .image {
+    float: right;
+}
+
+#who .container .image img {
+    width: 90%;
+    object-fit: cover;
+    margin: auto;
+}
+
+
+/* What? section */
+
+#what {
+    width: 100%;
+    margin: 5rem 0rem;
+}
+
+#what .container {
+    width: 80%;
+    margin: 0rem auto;
+    color: #056257;
+}
+
+#what .container .image,
+#what .container .text {
+    display: inline-block;
+    width: 40%;
+}
+
+#what .container .text {
+    margin: 10rem 2rem 10rem 9rem;
+    text-align: right;
+}
+
+#what .container .text h3 {
+    font-family: "Merriweather", serif;
+    font-size: 2.5rem;
+    color: #1f7360;
+    margin: 0.75rem 0rem;
+    font-weight: normal;
+}
+
+#what .container .text p {
+    font-size: 1.5rem;
+    color: black;
+}
+
+#what .container .image {
+    float: left;
+    margin: 3rem 0rem;
+}
+
+#what .container .image img {
+    width: 90%;
+    object-fit: cover;
+    margin: 0.5rem 0rem 0.5rem 2rem;
+}
+
+
+/* How? section */
+
+#how {
+    width: 100%;
+    margin: 5rem auto;
+}
+
+#how .container {
+    width: 80%;
+    margin: 1.25rem auto;
+}
+
+#how .container .title {
+    text-align: center;
+    width: 60%;
+    margin: 0rem auto;
+    color: #1f7360;
+}
+
+#how .container .title h3,
+#how .container .go h3 {
+    font-family: "Merriweather", serif;
+    font-size: 2.5rem;
+    font-weight: normal;
+    margin: 0.5rem auto;
+}
+
+#how .container .title p {
+    font-size: 1.25rem;
+    font-weight: lighter;
+    margin-bottom: 0.5rem;
+}
+
+#how .container .image {
+    width: 70%;
+    margin: 0rem auto;
+}
+
+#how .container .image img {
+    width: 100%;
+    margin: 0.75rem auto;
+    object-fit: cover;
+    border-radius: 0rem 3rem;
+    box-shadow: 2px 2px 4px rgb(128, 128, 128, 0.5);
+}
+
+#how .container .text {
+    width: 75%;
+    margin: 0rem auto;
+    text-align: justify;
+}
+
+#how .container .text p {
+    font-size: 1.25rem;
+    font-weight: 200;
+}
+
+#how .container .text h4 {
+    font-family: "Merriweather", serif;
+    font-weight: normal;
+    font-size: 1.5rem;
+    color: #1f7360;
+    margin-top: 1rem;
+}
+
+#how .container .go {
+    width: 80%;
+    margin: 2.5rem auto;
+    text-align: center;
+    color: #1f7360;
+}
+
+#how .container .go p {
+    width: 60%;
+    text-align: left;
+    margin: 5rem auto;
+    color: black;
+}
+
+@media (max-width: 767px) {
+    #who .container .image,
+    #who .container .text {
+        display: block;
+        width: 100%;
+    }
+    #who .container .text h3 {
+        font-size: 2rem;
+    }
+    #who .container .text p {
+        font-size: 1rem;
+    }
+    #who .container .image {
+        margin: 0rem auto;
+    }
+    #who .container .text {
+        margin: 5rem 0.5rem;
+    }
+    #who .container {
+        color: #ffffff;
+        background-image: linear-gradient( 120deg, #d2e69c 20%, #6aceb3 45%, #207ead 90%);
+    }
+    #what .container .image,
+    #what .container .text {
+        display: block;
+        float: left;
+        width: 80%;
+        margin: 0rem auto;
+    }
+    #what .container .text {
+        margin: 2rem 2rem 5rem 2rem;
+        text-align: justify;
+    }
+    #what .container .text h3 {
+        font-size: 2rem;
+    }
+    #what .container .text p {
+        font-size: 1rem;
+    }
+    .container {
+        width: 90% !important;
+        margin: auto 20px !important;
+    }
+    #how .container .go p {
+        width: 80%
+    }
+    #how .container .go h3 {
+        font-size: 1.5rem;
+    }
+    #how .container .title p {
+        font-size: 0.75rem;
+    }
+    #how .container .title h3 {
+        font-size: 2rem;
+    }
+    #how .container .text p {
+        font-size: 1rem;
+    }
+    #how .container .text h4 {
+        font-size: 1rem;
+    }
+}

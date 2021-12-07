@@ -1,0 +1,33 @@
+{% load static %} {% load widget_tweaks %} {% include "html/navbar.html" %}
+<link rel="stylesheet" href="/static/css/profile.css">
+<div class="container rounded bg-white mt-5 mb-5" id="center-profile">
+    <div class="container-profile">
+        <div class="row" id="profile-box">
+            <div class="col-md-5 border-right" id="profile-left">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <img class="rounded-circle mt-5" width="150px" src="{{ user.profile.avatar.url }}">
+                    <span class="font-weight-bold">{{user.username}}</span>
+                    <span class="text-black-50" style="color: #fff;">{{user.email}}</span><span> </span>
+                </div>
+            </div>
+            <div class="col-md-7" id="profile-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Hồ sơ cá nhân</h4>
+                    </div>
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row mt-4">
+                            <div class="col-md-12"><label class="labels">Tên người dùng</label>{% render_field u_form.username placeholder="Tên đăng nhập" class="form-control" %}</div>
+                            <div class="col-md-12"><label class="labels">Email</label>{% render_field u_form.email placeholder="Email" class="form-control" %}</div>
+                            <div class="col-md-12"><label class="labels">Giới thiệu</label>{% render_field p_form.bio placeholder="Giới thiệu" class="form-control" %}</div>
+                            <div class="col-md-12"><label class="labels">Cập nhập ảnh đại diện</label>{% render_field p_form.avatar class="form-control" %}</div>
+                        </div>
+                        <div class="mt-4 text-center"><button class="btn btn-primary profile-button" type="submit">Cập nhập</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% include "html/footer.html" %}

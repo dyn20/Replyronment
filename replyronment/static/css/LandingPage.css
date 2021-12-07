@@ -1,68 +1,38 @@
 /* Header section */
 
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Noto+Sans&display=swap');
-#header {
-    width: 100%;
-    min-height: 300px;
-    margin: 100px auto;
-    font-family: "Merriweather", serif;
-    /*font-family: "Noto Sans", sans-serif;*/
-}
-
-#header .container {
-    display: block;
-    margin: 0px auto;
-    width: 100%;
-    height: 600px;
-    background-image: url("../Images/elephant-walking-road.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    object-fit: fill;
-    border-radius: 0 400px 0 660px;
-    box-shadow: 2px 2px 5px rgb(128, 128, 128, 0.8);
-}
-
-#header .container p {
-    display: block;
-    float: right;
-    font-size: 50px;
-    width: 300px;
-    margin: 200px 100px 0px 0px;
-    text-shadow: 2px 2px 5px rgb(128, 128, 128, 0.5);
-    color: rgb(128, 128, 128, 1);
-}
-
 
 /* Blog section */
 
 #blog {
     width: 100%;
+    margin-bottom: 100px;
 }
 
-#blog .container {
+#blog .block {
     width: 100%;
     height: 600px;
     text-align: center;
     display: inline-block;
-    margin: 50px auto;
 }
 
-#blog .container h3 {
+#blog .block h3 {
     color: #056257;
     font-size: 50px;
     font-weight: normal;
     margin: 30px auto;
     text-shadow: 2px 2px 4px rgba(128, 128, 128, 0.5);
+    text-align: center;
     /* dùng shadow này cho chữ */
 }
 
-#blog .container .container-brief {
+#blog .block .block-brief {
     width: max-content;
     height: 500px;
     margin: 0px auto;
 }
 
-#blog .container .brief {
+#blog .block .brief {
     max-width: 280px;
     height: 480px;
     display: block;
@@ -75,24 +45,24 @@
     color: #056257;
 }
 
-#blog .container .brief:hover {
+#blog .block .brief:hover {
     background-image: linear-gradient( 120deg, #d2e69c 20%, #6aceb3 45%, #207ead 90%);
     color: #ffffff;
 }
 
-#blog .container .brief img {
+#blog .block .brief img {
     width: 100%;
     height: 50%;
     object-fit: cover;
     border-radius: 30px 30px 0px 0px;
 }
 
-#blog .container .brief h4 {
+#blog .block .brief h4 {
     margin: 10px auto;
     width: 85%;
 }
 
-#blog .container .brief p {
+#blog .block .brief p {
     width: 75%;
     margin: 13px auto;
     font-weight: lighter;
@@ -100,10 +70,10 @@
     font-style: italic;
 }
 
-#blog .container .more {
+#blog .block .more {
     width: max-content;
     height: 50px;
-    margin: 0px auto;
+    margin: 10px auto;
     border-style: none;
     border-radius: 40px;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
@@ -111,18 +81,18 @@
     display: inline-block;
 }
 
-#blog .container .more p {
+#blog .block .more p {
     font-weight: lighter;
     float: left;
     margin: 13px 0px 13px 10px;
 }
 
-#blog .container .more a p {
+#blog .block .more a {
     font-weight: 700;
     margin: 13px 5px;
 }
 
-#blog .container .more a:visited {
+#blog .block .more a:visited {
     color: #056257;
 }
 
@@ -137,15 +107,16 @@ hr {
 
 #game {
     width: 100%;
+    text-align: center;
 }
 
-#game .container {
+#game .block {
     width: max-content;
     height: 300px;
     margin: 0px auto;
 }
 
-#game .container h3 {
+#game .block h3 {
     text-align: center;
     font-size: 50px;
     font-weight: normal;
@@ -153,12 +124,12 @@ hr {
     text-shadow: 0px 2px 5px rgba(128, 128, 128, 0.5);
 }
 
-#game .container .container-game {
-    width: max-content;
+#game .block .block-game {
+    /*width: max-content;*/
     margin: 20px auto;
 }
 
-#game .container .container-game .game-info {
+#game .block .block-game .game-info {
     width: 100%;
     height: 200px;
     border-style: none;
@@ -169,34 +140,34 @@ hr {
     display: block;
 }
 
-#game .container .container-game .game-info:hover {
+#game .block .block-game .game-info:hover {
     color: #ffffff;
     background-image: linear-gradient( 160deg, #d2e69c 20%, #6aceb3 45%, #207ead 90%);
 }
 
-#game .container .container-game .game-info .text-game {
+#game .block .block-game .game-info .text-game {
     margin: 55px 20px 55px 80px;
-    width: max-content;
+    /*width: max-content;*/
 }
 
-#game .container .container-game .game-info .text-game h4 {
+#game .block .block-game .game-info .text-game h4 {
     font-size: 25px;
-    width: max-content;
+    /*  width: max-content;*/
     margin-bottom: 10px;
 }
 
-#game .container .container-game .game-info .text-game p {
+#game .block .block-game .game-info .text-game p {
     font-size: 18px;
     font-weight: lighter;
     width: 450px;
 }
 
-#game .container .container-game .game-info .text-game,
-#game .container .container-game .game-info img {
+#game .block .block-game .game-info .text-game,
+#game .block .block-game .game-info img {
     display: inline-block;
 }
 
-#game .container .container-game .game-info img {
+#game .block .block-game .game-info img {
     height: 100%;
     width: 200px;
     object-fit: cover;
@@ -209,16 +180,17 @@ hr {
 /* Forum section */
 
 #forum {
+    text-align: center;
     width: 100%;
 }
 
-#forum .container {
+#forum .block {
     width: max-content;
     height: 600px;
     margin: 0px auto;
 }
 
-#forum .container h3 {
+#forum .block h3 {
     text-align: center;
     font-size: 50px;
     font-weight: normal;
@@ -226,7 +198,7 @@ hr {
     text-shadow: 0px 2px 5px rgba(128, 128, 128, 0.5);
 }
 
-#forum .container .forum-info {
+#forum .block .forum-info {
     width: 1000px;
     height: 500px;
     border-style: none;
@@ -236,17 +208,17 @@ hr {
     color: #056257;
 }
 
-#forum .container .forum-info:hover {
+#forum .block .forum-info:hover {
     color: #ffffff;
     background-image: linear-gradient( 160deg, #d2e69c 20%, #6aceb3 45%, #207ead 90%);
 }
 
-#forum .container .forum-info img,
-#forum .container .forum-info .forum-text {
+#forum .block .forum-info img,
+#forum .block .forum-info .forum-text {
     display: inline-block;
 }
 
-#forum .container .forum-info img {
+#forum .block .forum-info img {
     width: 500px;
     height: 500px;
     object-fit: cover;
@@ -254,19 +226,106 @@ hr {
     float: left;
 }
 
-#forum .container .forum-info .forum-text {
+#forum .block .forum-info .forum-text {
     width: 500px;
     margin: 160px 0px;
 }
 
-#forum .container .forum-info .forum-text h4 {
+#forum .block .forum-info .forum-text h4 {
     font-size: 25px;
     width: 480px;
     margin-bottom: 20px;
 }
 
-#forum .container .forum-info .forum-text p {
+#forum .block .forum-info .forum-text p {
     font-size: 18px;
     font-weight: lighter;
     width: 480px;
+}
+
+.viewmore {
+    display: none;
+}
+
+@media screen and (max-width:767px) {
+    #blog {
+        margin: 0px 0px;
+    }
+    #blog h3 {
+        font-size: 30px;
+    }
+    #blog .block {
+        margin: auto 0px;
+    }
+    #blog .block .brief {
+        display: block;
+        float: none;
+        width: 100%;
+        height: 400px;
+        margin: 20px auto;
+    }
+    #blog .block h3 {
+        margin-top: 20px;
+        font-size: 25px;
+    }
+    #blog .block .more {
+        margin: 0px auto;
+        border-style: none;
+        display: inline;
+    }
+    #blog .block .more p {
+        display: none;
+    }
+    .viewmore {
+        display: inline;
+    }
+    #game .block .block-game .game-info img {
+        display: none;
+    }
+    #game .block {
+        width: 80%
+    }
+    #game .block .block-game {
+        width: 80%;
+    }
+    #game .block .block-game .game-info .text-game {
+        width: 80%;
+        margin: 5px;
+    }
+    #game .block .block-game .game-info .text-game h4 {
+        font-size: 20px;
+        margin-top: 20px;
+    }
+    #game .block .block-game .game-info .text-game p {
+        font-size: 15px;
+        font-weight: lighter;
+        width: 100%;
+    }
+    #forum .block .forum-info img {
+        display: none;
+    }
+    #forum .block {
+        width: 80%
+    }
+    #forum .block .forum-info {
+        width: 100%;
+        height: 250px;
+    }
+    #forum .block .forum-info .forum-text {
+        width: 80%;
+        margin: 5px;
+    }
+    #forum .block .forum-info .forum-text h4 {
+        font-size: 20px;
+        margin-top: 20px;
+        width: 100%;
+    }
+    #forum .block .forum-info .forum-text p {
+        font-size: 15px;
+        font-weight: lighter;
+        width: 100%;
+    }
+    hr {
+        width: 80%;
+    }
 }

@@ -1,0 +1,255 @@
+.forum-container {
+    margin: 20px 150px 150px 50px;
+}
+
+.search-bar {
+    float: right;
+}
+
+.css-button {
+    color: #FFFFFF;
+    font-size: 16px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #5CBFB2 5%, #207EAD 100%);
+    text-shadow: 1px 1px 1px #528ecc;
+    box-shadow: inset 1px 1px 2px 0px #bbdaf7;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+}
+
+.css-button:hover {
+    background: linear-gradient(180deg, #5CBFB2 5%, #63B8EE 100%);
+}
+
+.css-button-icon {
+    padding: 10px 10px;
+    border-right: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: rgba(0, 0, 0, 0.14) -1px 0px 0px inset;
+}
+
+.css-button-text {
+    padding: 10px 18px;
+}
+
+.card-post {
+    margin-top: 50px;
+}
+
+.card-post .element {
+    position: relative;
+    background-color: #E8F6EF;
+    border-radius: 20px;
+    border: 1px solid #B8DFD8;
+    margin: 10px auto;
+}
+
+.card-post .element .content {
+    padding: 20px 20px;
+}
+
+.title {
+    font-size: 25px;
+}
+
+.tags {
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    position: relative;
+    margin: 0 5px 8px 0;
+    padding: 0 10px 0 12px;
+    background: #777;
+    -webkit-border-bottom-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    -webkit-border-top-right-radius: 3px;
+    border-top-right-radius: 3px;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    font-size: 12px;
+    text-decoration: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.author {
+    background-color: #6ACEB3;
+    height: 30px;
+    width: 110px;
+    border-radius: 20px
+}
+
+.author img {
+    padding-top: 5px;
+    margin-left: 10px;
+    float: left;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%
+}
+
+.author p {
+    padding-top: 8px;
+    margin-right: 6px;
+    text-align: center;
+    font-size: 12px;
+    color: white
+}
+
+@media screen and (max-width:767px) {
+    .forum-container {
+        margin: 10px 20px;
+    }
+    .card-post {
+        margin-top: 20px;
+    }
+    .card-post .element .content .title {
+        font-size: 15px;
+    }
+    .card-post .element .content {
+        padding: 10px 10px;
+    }
+    .css-button {
+        font-size: 10px;
+    }
+    .css-button-icon {
+        padding: 5px 5px;
+        border-right: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow: rgba(0, 0, 0, 0.14) -1px 0px 0px inset;
+    }
+}
+
+
+/*Search bar*/
+
+body {
+    display: grid;
+    height: 100%;
+}
+
+::selection {
+    color: #fff;
+    background: #308FAF;
+}
+
+.search-box {
+    box-sizing: border-box;
+    position: relative;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, .2);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.search-box.active {
+    width: 350px;
+}
+
+.search-box input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 50px;
+    background: #fff;
+    outline: none;
+    font-size: 18px;
+    opacity: 1;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.search-box input.active {
+    opacity: 1;
+}
+
+.search-box input::placeholder {
+    color: #a6a6a6;
+}
+
+.search-box .search-icon {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60px;
+    width: 60px;
+    background: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 60px;
+    font-size: 22px;
+    color: #308FAF;
+    cursor: pointer;
+    z-index: 1;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.search-box .search-icon.active {
+    right: 5px;
+    height: 50px;
+    line-height: 50px;
+    width: 50px;
+    font-size: 20px;
+    background: #308FAF;
+    color: #fff;
+    transform: translateY(-50%) rotate(360deg);
+}
+
+.search-box .cancel-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 25px;
+    color: #7F7C82;
+    cursor: pointer;
+    transition: all 0.5s 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.search-box .cancel-icon.active {
+    right: -40px;
+    transform: translateY(-50%) rotate(360deg);
+}
+
+.search-box .search-data {
+    text-align: center;
+    padding-top: 7px;
+    color: #fff;
+    font-size: 18px;
+    word-wrap: break-word;
+}
+
+.search-box .search-data.active {
+    display: none;
+}
+
+@media screen and (max-width:767px) {
+    .search-box.active {
+        width: 230px;
+    }
+    .search-box {
+        height: 40px;
+        width: 40px;
+        margin-right: 20px;
+    }
+    .search-box .search-icon {
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        font-size: 18px;
+    }
+    .search-box .search-icon.active {
+        right: 2px;
+        height: 30px;
+        line-height: 30px;
+        width: 30px;
+        font-size: 15px;
+    }
+    .search-box .cancel-icon {
+        position: absolute;
+        font-size: 20px;
+    }
+    .search-box .cancel-icon.active {
+        right: -20px;
+    }
+}

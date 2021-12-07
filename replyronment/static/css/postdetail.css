@@ -8,7 +8,7 @@ body {
     display: inline-block;
     height: 24px;
     line-height: 24px;
-    position: relative;
+    /*position: relative;*/
     margin: 0 16px 8px 0;
     padding: 0 10px 0 12px;
     background: #777;
@@ -75,4 +75,68 @@ textarea {
 
 .related-post {
     margin: 70px auto;
+}
+
+
+/*button of forum post detail*/
+
+.css-button {
+    color: #FFFFFF;
+    font-size: 16px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #5CBFB2 5%, #207EAD 100%);
+    text-shadow: 1px 1px 1px #528ecc;
+    box-shadow: inset 1px 1px 2px 0px #bbdaf7;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+}
+
+.css-button:hover {
+    background: linear-gradient(180deg, #5CBFB2 5%, #63B8EE 100%);
+}
+
+.css-button-icon {
+    padding: 10px 10px;
+    border-right: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: rgba(0, 0, 0, 0.14) -1px 0px 0px inset;
+}
+
+.css-button-text {
+    padding: 10px 18px;
+}
+
+.card-body p img {
+    width: 80%;
+    height: auto;
+}
+
+@media screen and (max-width:767px) {
+    .card-body p img {
+        width: 90%;
+        height: auto;
+    }
+    .container-bg {
+        padding: 1% 1%
+    }
+    textarea {
+        width: 100%;
+    }
+    .right-btn-cmt {
+        width: 100%;
+    }
+    .container-post {
+        padding: 10px 10px;
+    }
+    .css-button {
+        background-color: #5CBFB2;
+        border-radius: 0px;
+        margin: 10px 0px auto auto;
+    }
+    .css-button-icon {
+        padding: 5px 10px;
+    }
+    .css-button-text {
+        display: none;
+    }
 }

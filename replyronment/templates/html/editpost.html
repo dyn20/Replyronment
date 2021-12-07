@@ -1,0 +1,24 @@
+<!--<form action="{% url 'editpost' post.slug %}" method='post'>
+    {% csrf_token %} {{ form.media }} {{ form.as_p }}
+    <button name="submet">Save changes</button>
+</form>-->
+{% load widget_tweaks %} {% include "html/navbar.html" %} {% load static %}
+<link rel="stylesheet" href="{%  static  'css/forum_post.css'  %}">
+<br>
+<div class="form-post" style="margin: 10px 10px;">
+    <form action="{% url 'editpost' post.slug %}" method='post'>
+        {% csrf_token %}
+        <script src="/static/ckeditor/ckeditor-init.js" data-ckeditor-basepath="/static/ckeditor/ckeditor/" id="ckeditor-init-script"></script>
+        <script src="/static/ckeditor/ckeditor/ckeditor.js"></script>
+        <p class="title"><label for="id_title">Tiêu đề </label> {% render_field form.title class="title" %}</p>
+        <p class="content"><label for="id_body">Nội dung</label>
+            <div class="django-ckeditor-widget" data-field-id="id_body" style="display: inline-block;">
+                <!--{% render_field form.body class="form-control" %}-->
+                <textarea cols="40" id="id_body" name="body" rows="10" required data-processed="0" data-config="{&quot;skin&quot;: &quot;moono-lisa&quot;, &quot;toolbar_Basic&quot;: [[&quot;Source&quot;, &quot;-&quot;, &quot;Bold&quot;, &quot;Italic&quot;]], &quot;toolbar_Full&quot;: [[&quot;Styles&quot;, &quot;Format&quot;, &quot;Bold&quot;, &quot;Italic&quot;, &quot;Underline&quot;, &quot;Strike&quot;, &quot;SpellChecker&quot;, &quot;Undo&quot;, &quot;Redo&quot;], [&quot;Link&quot;, &quot;Unlink&quot;, &quot;Anchor&quot;], [&quot;Image&quot;, &quot;Flash&quot;, &quot;Table&quot;, &quot;HorizontalRule&quot;], [&quot;TextColor&quot;, &quot;BGColor&quot;], [&quot;Smiley&quot;, &quot;SpecialChar&quot;], [&quot;Source&quot;]], &quot;toolbar&quot;: &quot;Full&quot;, &quot;height&quot;: 291, &quot;filebrowserWindowHeight&quot;: 725, &quot;filebrowserUploadUrl&quot;: &quot;/ckeditor/upload/&quot;, &quot;filebrowserBrowseUrl&quot;: &quot;/ckeditor/browse/&quot;, &quot;language&quot;: &quot;en-us&quot;}"
+                    data-external-plugin-resources="[]" data-id="id_body" data-type="ckeditortype">{{ form.body.value}}</textarea>
+            </div>
+        </p>
+        <p class="tags"><label for="id_tag">Tags:</label> {% render_field form.tag class="form-control" %}</p>
+        <input class="submitbtn" type="submit" value="Lưu chỉnh sửa">
+    </form>
+</div><br> {% include "html/footer.html" %}

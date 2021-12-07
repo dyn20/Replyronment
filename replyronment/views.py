@@ -1,13 +1,13 @@
 from django.contrib.auth.models import User
-from django.db.models import Count
+from django.db.models import Count, query
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
 from django.http import HttpResponse, request
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import RegistrationForm, UpdateUserForm, UpdateProfileForm, CommentForm, ForumPostForm, CommentForumForm
+from .forms import RegistrationForm, UpdateUserForm, UpdateProfileForm, CommentForm, ForumPostForm, CommentForumForm, addQuestionFor
 from django.views import generic
-from .models import Post, Comment, ForumPost, CommentForum
+from .models import Post, Comment, ForumPost, CommentForum, Profile, QuesModel
 from taggit.models import Tag
 from django.db.models import Count, Q
 
@@ -53,17 +53,18 @@ def profile(request):
         'p_form': p_form
     }
 
-    return render(request, 'html/Profile.html', context)
+    return render(request, 'html/profilefake.html', context)
 
 def landingpage(request):
     user = request.user
     return render(request,'html/LandingPage.html',{'user':user})
-
+def aboutus(request):
+    return render(request,'html/about.html')
 #generic.ListView
 def postlist(request):
     query = request.GET.get("q")
     if query:
-        data ={'Posts':Post.objects.filter(Q(title__icontains=query) | Q(tag__name__icontains=query)).distinct()}
+        data ={'Posts':Post.objects.filter(Q(title__icontains=query) | Q(tag__name__icontains=query)).distinct().order_by("-date")}
     else:
         data ={'Posts':Post.objects.all().order_by("-date")}
     return render(request,'html/postlist.html',data)
@@ -106,7 +107,11 @@ def reply_page(request):
     
 @login_required(login_url='/login')
 def post_forum(request):
-    data ={'Posts':ForumPost.objects.all().order_by("-date")}
+    query = request.GET.get("q")
+    if query:
+        data ={'Posts':ForumPost.objects.filter(Q(title__icontains=query) | Q(tag__name__icontains=query)).distinct().order_by("-date")}
+    else:
+        data ={'Posts':ForumPost.objects.all().order_by("-date")}
     return render(request,'html/forum.html',data)
 
 @login_required(login_url='/login')
@@ -117,7 +122,13 @@ def createpost(request):
             new_post = form.save(commit=False)
             new_post.author = request.user
             new_post.save()
-            return HttpResponseRedirect('/Forum')
+            #new_post.tag.add(request.POST['tag'])
+            #new_post.save()
+            #
+        form = ForumPostForm(instance=new_post,data=request.POST)
+        if form.is_valid():
+            form.save()
+        return HttpResponseRedirect('/Forum')
     else:
         form = ForumPostForm()
     return render(request,'html/forum_post.html',{'post_form':form})
@@ -155,3 +166,94 @@ def reply_pageforum(request):
 
             return HttpResponseRedirect(post_url+'#'+str(reply.id))
     return HttpResponseRedirect("/")
+
+@login_required(login_url='/login')
+def mypost(request):
+    Posts = ForumPost.objects.all().filter(author=request.user).order_by("-date")
+    return render(request,'html/mypost.html',{'Posts':Posts})
+
+@login_required(login_url='/login')
+def editpost(request,slug):
+    post = ForumPost.objects.get(slug=slug)
+    if(post.author==request.user or request.user.is_staff):
+        if request.method == 'POST':
+            form = ForumPostForm(instance=post,data=request.POST)
+            if form.is_valid():
+                form.save()
+                return HttpResponseRedirect('/Forum/'+slug)
+        else:
+            form = ForumPostForm(instance=post)
+        return render(request,'html/editpost.html',{'post':post,'form':form}) 
+    else:
+        return HttpResponseRedirect('/Forum/'+slug)
+
+@login_required(login_url='/login')
+def deletepost(request,slug):
+    post_to_delete = ForumPost.objects.get(slug=slug)
+    if post_to_delete != None:
+        post_to_delete.delete()
+    return HttpResponseRedirect('/Forum')
+
+@login_required(login_url='/login')
+def playquiz(request):
+    profile = Profile.objects.get(user=request.user)
+    incorrectques = profile.Incorrect_ques.all()
+    correctques = profile.Correct_ques.all()
+    answeredques = profile.answered_ques.all()
+    allquestions = QuesModel.objects.all()
+    correctidlist = list()
+    for ques in correctques:
+        correctidlist.append(ques.id)
+    startquestions = QuesModel.objects.filter(~Q(id__in=correctidlist))
+    questions = startquestions
+    query = request.GET.get("q")
+    if query=='tat-ca-cau-hoi':
+        questions=allquestions
+    if query=="tra-loi-dung":
+        questions =correctques
+    if query=='tra-loi-sai':
+        questions=incorrectques
+    if query=='bat-dau-quiz':
+        questions = startquestions
+    if request.method == 'POST':
+        score=0
+        wrong=0
+        correct=0
+        total=0
+        for q in questions:
+            profile.answered_ques.add(q)
+            total +=1
+            print("cau hoi",request.POST.get(q.question))
+            if q.ans == request.POST.get(q.question):
+                score += q.point
+                correct +=1
+                profile.Correct_ques.add(q)
+            else:
+                wrong +=1
+                profile.Incorrect_ques.add(q)
+        profile.score += score
+        profile.save()
+        context = {
+            'score':score,
+            'correct': correct,
+            'wrong': wrong,
+            'total': total
+        }
+        return render(request,'html/quizresult.html',context)
+    else:
+        query = request.GET.get("q")
+        if query=='tat-ca-cau-hoi':
+            questions=allquestions
+        if query=="tra-loi-dung":
+            questions =correctques
+        if query=='tra-loi-sai':
+            questions=incorrectques
+        if query=='bat-dau-quiz':
+            questions = startquestions
+        return render(request,'html/quizhome.html', {'questions': questions})
+
+def scoreboard(request):
+    users = Profile.objects.all().order_by("-score")
+    return render(request,'html/scoreboard.html',{'users':users})
+
+

@@ -1,245 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Noto+Sans&display=swap');
+#main-wrapper {
+    padding-top: 150px;
+    padding-bottom: 100px;
+}
+
 body {
-    font-family: "Noto Sans", sans-serif;
+    background: #f6f9fc;
 }
 
-.container1 {
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 50%;
-    background: #fff;
-    padding: 30px 20px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    perspective: 2700px;
-    left: 25%;
-    margin-top: 100px;
-    border-radius: 20px;
-}
-
-.container1 .cover {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    height: 100%;
-    width: 50%;
-    z-index: 98;
-    transition: all 1s ease;
-    transform-origin: left;
-    transform-style: preserve-3d;
-}
-
-.container1 #flip:checked~.cover {
-    transform: rotateY(-180deg);
-}
-
-.container1 .cover .front,
-.container1 .cover .back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-}
-
-.cover .back {
-    transform: rotateY(180deg);
-    backface-visibility: hidden;
-}
-
-.container1 .cover::before,
-.container1 .cover::after {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: #639ed6;
-    opacity: 0.5;
-    z-index: 12;
-}
-
-.container1 .cover::after {
-    opacity: 0.3;
-    transform: rotateY(180deg);
-    backface-visibility: hidden;
-}
-
-.container1 .cover img {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    z-index: 10;
-}
-
-.container1 .cover .text {
-    position: absolute;
-    z-index: 130;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.cover .text .text-1,
-.cover .text .text-2 {
-    font-size: 26px;
-    font-weight: 600;
-    color: #fff;
-    text-align: center;
-}
-
-.cover .text .text-2 {
-    font-size: 15px;
-    font-weight: 500;
-}
-
-.container1 .forms {
-    height: 100%;
-    width: 100%;
-    background: #fff;
-}
-
-.container1 .form-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.form-content .login-form,
-.form-content .signup-form {
-    width: calc(100% / 2 - 25px);
-}
-
-.forms .form-content .title {
-    position: relative;
-    font-size: 24px;
-    font-weight: 500;
-    color: #333;
-}
-
-.forms .form-content .title:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 3px;
-    width: 25px;
-    background: #056257;
-}
-
-.forms .signup-form .title:before {
-    width: 20px;
-}
-
-.forms .form-content .input-boxes {
-    margin-top: 30px;
-}
-
-.forms .form-content .input-box {
-    display: flex;
-    align-items: center;
-    height: 50px;
-    width: 100%;
-    margin: 10px 0;
-    position: relative;
-}
-
-.form-content .input-box input {
-    height: 100%;
-    width: 100%;
-    outline: none;
-    border: none;
-    padding: 0 30px;
-    font-size: 16px;
-    font-weight: 500;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-.form-content .input-box input:focus,
-.form-content .input-box input:valid {
-    border-color: #056257;
-}
-
-.form-content .input-box i {
-    position: absolute;
-    color: #056257;
-    font-size: 17px;
-}
-
-.forms .form-content .text {
-    font-size: 14px;
-    font-weight: 500;
-    color: #333;
-}
-
-.forms .form-content .text a {
-    text-decoration: none;
-}
-
-.forms .form-content .text a:hover {
-    text-decoration: underline;
-}
-
-.forms .form-content .button {
-    color: #fff;
-    margin-top: 40px;
-}
-
-.forms .form-content .button input {
-    color: #fff;
-    background: #056257;
-    border-radius: 6px;
+.account-block {
     padding: 0;
-    cursor: pointer;
-    transition: all 0.4s ease;
+    background-image: url(../Images/tree.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    position: relative;
+    border-radius: 0px 20px 20px 0px;
 }
 
-.forms .form-content .button input:hover {
-    background: #056257;
+.account-block .overlay {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
-.forms .form-content label {
-    color: #056257;
-    cursor: pointer;
-}
-
-.forms .form-content label:hover {
-    text-decoration: underline;
-}
-
-.forms .form-content .login-text,
-.forms .form-content .sign-up-text {
+.account-block .account-testimonial {
     text-align: center;
-    margin-top: 25px;
+    color: #fff;
+    position: absolute;
+    margin: 0 auto;
+    padding: 0 1.75rem;
+    bottom: 3rem;
+    left: 0;
+    right: 0;
 }
 
-.container1 #flip {
-    display: none;
+.text-theme {
+    color: #056257 !important;
 }
 
-@media (max-width: 730px) {
-    .container1 .cover {
-        display: none;
-    }
-    .form-content .login-form,
-    .form-content .signup-form {
-        width: 100%;
-    }
-    .form-content .signup-form {
-        display: none;
-    }
-    .container1 #flip:checked~.forms .signup-form {
-        display: block;
-    }
-    .container1 #flip:checked~.forms .login-form {
-        display: none;
-    }
-}
-
-a {
-    text-decoration: none;
+.btn-theme {
+    background-color: #056257;
+    border-color: #056257;
+    color: #fff;
 }

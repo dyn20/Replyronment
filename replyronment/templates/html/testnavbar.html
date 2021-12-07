@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+{% load static %}
+
+<head>
+    <title>Replyronment</title>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Noto+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{%  static  'css/testnavbar.css'  %}">
+    <link rel="stylesheet" href="{%  static  'css/test.css'  %}">
+</head>
+<div id="nav">
+    <div class="container">
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+        <div class="logo">
+            <img href="#" src="../../static/Images/logo.png" alt="Replyronment Logo" />
+        </div>
+        <div class="list">
+            <ul>
+                <li>
+                    <a class="normal" href="/">Trang chủ</a>
+                </li>
+                <li>
+                    <a href="/LandingPage#feature">Tính năng</a>
+                </li>
+                <li>
+                    <a href="#" class="normal">Về chúng mình</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="user">
+                    <div class="img_container">
+                        <a href="/Profile" class="normal"><img src="{{ user.profile.avatar.url }}" alt="avatar" /></a>
+                    </div>
+                    <div class="username">
+                        <a href="/Profile" class="normal">{{user.username}}</a>
+                    </div>
+                </li>
+                {% else %}
+                <li class="dangNhap">
+                    <a class="normal" href="/login">Đăng nhập</a>
+                </li>
+                <li class="dangKi">
+                    <a href="/register">Đăng kí</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>

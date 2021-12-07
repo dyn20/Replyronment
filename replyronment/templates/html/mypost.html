@@ -1,0 +1,31 @@
+{% include "html/navbar.html" %} {% load static %}
+<link rel="stylesheet" href="{%  static  'css/mypost.css'  %}">
+<div class="wrapper">
+    <div class="mypost-container">
+        <div class="card-post">
+            {% for post in Posts %}
+            <div class="element">
+                <div class="content">
+                    <div class="author">
+                        <img src="{{ post.author.profile.avatar.url }}" alt="something">
+                        <p>{{post.author.username}}</p>
+                    </div>
+                    <a href="{% url 'forumpostdetail' post.slug  %}" class="title">
+                {{post.title}}
+            </a>
+                    <div>{% for tag in post.tag.all %}
+
+                        <p class="tags">
+                            {{tag.name}}
+                        </p>
+                        <!-- {% if not forloop.last %}, {% endif %} -->
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% include "html/footer.html" %}

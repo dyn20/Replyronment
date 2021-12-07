@@ -1,0 +1,82 @@
+#center-profile {
+    display: flex;
+    justify-content: center;
+}
+
+.container-profile {
+    width: 700px !important;
+    display: flex;
+    justify-content: center;
+    border-radius: 40px;
+}
+
+#profile-left {
+    background-image: linear-gradient( 120deg, #d2e69c 20%, #6aceb3 45%, #207ead 90%);
+    border-radius: 40px 0px 0px 40px;
+    font-size: 20px;
+}
+
+#profile-right {
+    background: #EAEAEA;
+    border-radius: 0px 40px 40px 0px;
+}
+
+#profile-box {
+    border-radius: 40px;
+    margin-top: 50px;
+    -webkit-box-shadow: 10px 10px 40px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 10px 10px 40px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 10px 10px 40px 0px rgba(0, 0, 0, 0.2);
+}
+
+.form-control:focus {
+    box-shadow: none;
+    background-color: #E4FBFF
+}
+
+.profile-button {
+    background: #207ead;
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #207ead
+}
+
+.profile-button:focus {
+    background: #207ead;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #207ead;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8
+}
+
+label {
+    font-size: 15px;
+    color: #798777;
+}
+
+@media screen and (max-width:767px) {
+    #profile-left {
+        border-radius: 0px 0px 0px 0px;
+        font-size: 20px;
+    }
+    #profile-right {
+        border-radius: 0px 0px 0px 0px;
+    }
+}

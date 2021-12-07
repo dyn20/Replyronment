@@ -1,143 +1,95 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto);
-span .s1 {
-    position: absolute;
-    top: 0;
-    font-size: 15rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    color: #3C4447
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Noto+Sans&display=swap');
+.wrapper {
+    padding: 50px 200px;
+    font-family: "Noto Sans";
 }
 
-span .s2 {
-    font-weight: 800;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    font-size: 15rem;
-    text-transform: uppercase;
-    color: #3C4447
+.custom {
+    background-color: #ccc;
+    height: 200px;
 }
 
-
-/* The card */
-
-.card {
-    position: relative;
-    height: 450px;
-    width: 900px;
-    margin: 100px auto;
-    background-color: #fff;
-    -webkit-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
-    border-radius: 40px;
-    font-family: Roboto;
+.slogan {
+    margin-top: 100px;
 }
 
-
-/* Image on the left side */
-
-.thumbnail {
-    float: left;
-    position: relative;
-    left: 30px;
-    top: -30px;
-    height: 320px;
-    width: 530px;
-    -webkit-box-shadow: 10px 10px 40px 0px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 10px 10px 40px 0px rgba(0, 0, 0, 0.2);
-    box-shadow: 10px 10px 40px 0px rgba(0, 0, 0, 0.2);
-    overflow: hidden
+.customHeight {
+    height: 200px;
+    margin: 50px auto;
 }
 
-
-/*object-fit: cover;*/
-
-
-/*object-position: center;*/
-
-.thumbnail .left {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    height: 100%;
-    width: 100%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%)
+.customHeight .col-sm-4.custom {
+    border-radius: 20px 0px 0px 20px;
 }
 
-
-/* Right side of the card */
-
-.card .right {
-    margin-left: 590px;
-    margin-right: 20px;
+.customHeight .col-sm-8 {
+    background-color: #E6E6E6;
+    border-radius: 0px 20px 20px 0px;
 }
 
-.card h1 {
-    padding-top: 15px;
-    font-size: 1.3rem;
-    color: #4B4B4B
-}
-
-.author {
-    background-color: #6ACEB3;
-    height: 30px;
-    width: 110px;
-    border-radius: 20px
-}
-
-.author img {
-    padding-top: 5px;
-    margin-left: 10px;
-    float: left;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%
-}
-
-.card h2 {
-    padding-top: 8px;
-    margin-right: 6px;
-    text-align: right;
-    font-size: 0.8rem;
-    color: white
-}
-
-.separator {
-    margin-top: 10px;
-    color: #000 !important;
-}
-
-.card p {
-    text-align: justify;
+.dateHolder {
+    height: 80px;
+    width: 50px;
+    background-color: #444941;
     padding-top: 10px;
-    font-size: 0.95rem;
-    line-height: 150%;
-    color: #4B4B4B
+    padding-left: 10px;
+    font-weight: 700;
+    font-size: 20px;
+    color: #A8ECE7;
 }
 
-
-/* DATE of release*/
-
-.card h5 {
-    position: absolute;
-    left: 30px;
-    bottom: -120px;
-    font-size: 6rem;
-    color: #7F7C82
+.customHeight .title {
+    color: #056257;
 }
 
-.card h6 {
-    text-transform: uppercase;
-    position: absolute;
-    left: 30px;
-    bottom: -55px;
-    font-size: 2rem;
-    color: #9D9D9D
+.slogan {
+    text-align: center;
+    font-family: "Merriweather", serif;
+    text-shadow: 2px 2px 4px rgba(128, 128, 128, 0.5);
+    color: #056257;
 }
 
-a {
-    text-decoration: none;
+hr {
+    margin: 50px 0px 50px 0px;
+    border-top: 1.5px solid #056257;
+    width: 100%;
+    font-weight: 900;
+}
+
+.row.author {
+    width: fit-content;
+    padding: 3px;
+    margin-left: 5px;
+    border: solid 1px #A2D2FF;
+    background-color: #A2D2FF;
+    border-radius: 20px;
+}
+
+.row.more {
+    margin-top: -10px;
+}
+
+@media screen and (max-width:767px) {
+    .wrapper {
+        padding: 100px 20px;
+    }
+    .customHeight {
+        height: 400px;
+        margin: 20px auto 60px auto;
+    }
+    .slogan {
+        margin-top: 20px;
+        font-size: 20px !important;
+    }
+    hr {
+        margin: 20px 0px 20px 0px;
+        font-weight: 700;
+    }
+    .customHeight .col-sm-4.custom {
+        border-radius: 20px 20px 0px 0px;
+    }
+    .customHeight .col-sm-8 {
+        background-color: #E6E6E6;
+        border-radius: 0px 00px 20px 20px;
+    }
 }

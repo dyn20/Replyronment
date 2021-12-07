@@ -5,6 +5,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 from taggit.managers import TaggableManager
 from django.urls import reverse
 from django.utils.text import slugify 
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 class PublishedManager(models.Manager):
@@ -65,14 +66,40 @@ class UserPost(models.Model):
     body = RichTextUploadingField()
     date = models.DateTimeField(auto_now_add=True)
 
+class QuesModel(models.Model):
+    STATUS_CHOICES = (
+    ('draft', 'Draft'),
+    ('published', 'Published'),
+    )
+    question = models.CharField(max_length=500, null=True)
+    op1 = models.CharField(max_length=500,null=True)
+    op2 = models.CharField(max_length=500,null=True)
+    op3 = models.CharField(max_length=500,null=True)
+    op4 = models.CharField(max_length=500,null=True)
+    ans = models.CharField(max_length=500,null=True)
+    point = models.IntegerField(default=0, validators=[MaxValueValidator(100),MinValueValidator(0)])
+    #objects = models.Manager() # The default manager.
+    #published = PublishedManager()
+    #status = models.CharField(max_length=10,choices=STATUS_CHOICES,default='draft')
+
+    def __str__(self):
+        return self.question
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     avatar = models.ImageField(default='earth.png', upload_to='profile_images')
     bio = models.TextField()
+    score = models.IntegerField(default=0,validators=[MinValueValidator(0)])
+    answered_ques = models.ManyToManyField('QuesModel', blank=True, related_name='Answered_Questions')
+    Correct_ques = models.ManyToManyField('QuesModel', blank=True, related_name='Correct_Questions')
+    Incorrect_ques = models.ManyToManyField('QuesModel', blank=True, related_name='Incorrect_Question')
 
     def __str__(self):
         return f'{self.user.username} Profile'    
+    def getrank(self):
+        users = Profile.objects.all().order_by('-score')
+        return list(users).index(self) + 1
 
 class Comment(models.Model):
     post=models.ForeignKey(Post,on_delete=models.CASCADE, related_name="comments")
@@ -105,3 +132,7 @@ class CommentForum(models.Model):
         return self.body
     def get_comments(self):
         return CommentForum.objects.filter(parent=self).filter(active=True)
+
+
+
+

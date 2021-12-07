@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Noto+Sans&display=swap');
+i {
+    margin-right: 10px
+}
+
+#accordian {
+    color: #056257;
+    font-size: 20px;
+    background: #94DAFF;
+    width: 250px;
+    padding: 10px 0 10px 10px;
+    float: left;
+    height: 80vh;
+    overflow-x: hidden;
+    position: relative;
+    border-radius: 0px 0px 300px 0px;
+}
+
+#accordian li {
+    list-style-type: none;
+}
+
+#accordian ul li a {
+    color: #056257;
+    text-decoration: none;
+    line-height: 60px;
+    display: block;
+    padding: 0 20px;
+    transition-duration: .6s;
+    transition-timing-function: cubic-bezier(0.68, -.55, .265, 1.55);
+    /*position: relative;*/
+}
+
+#accordian>ul>li.active>a {
+    color: #5161ce;
+    background-color: transparent;
+    transition: all .7s
+}
+
+#accordian a:not(:only-of-type):after {
+    content: "\f105";
+    position: absolute;
+    right: 20px;
+    top: 10%;
+    font-family: "Noto Sans", sans-serif;
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
+    transition: .5s
+}
+
+#accordian .active>a:not(:only-of-type):after {
+    transform: rotate(90deg)
+}
+
+.allform {
+    display: none;
+}
+
+.container-ques {
+    width: 50%;
+    margin: 0px auto auto 300px;
+    padding: 150px 50px;
+    margin-bottom: 100px;
+}
+
+.card-ques {
+    margin-top: 0px;
+    font-size: 20px;
+}
+
+.card-ques .element {
+    /*position: relative;*/
+    background-color: #E8F6EF;
+    border-radius: 20px;
+    border: 1px solid #B8DFD8;
+    padding: 10px 30px;
+    margin-bottom: 20px;
+}
+
+.btn.btn-primary {
+    padding: 10px 20px;
+    border: none;
+    background-color: #056257;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 20px;
+    float: right;
+    cursor: pointer;
+    display: none;
+}
+
+.vertical.btn {
+    background-color: #96C7C1;
+    border: none;
+    color: white;
+    padding: 5px 5px;
+    font-size: 15px;
+    cursor: pointer;
+    display: none;
+    border-radius: 0px;
+}
+
+.hide-vertical-btn {
+    display: none;
+    font-size: 25px;
+    color: #fff;
+    float: right;
+}
+
+#hide-btn {
+    display: none;
+}
+
+.hide-btn {
+    display: none;
+    float: right;
+    color: #fff;
+    font-size: 25px;
+}
+
+@media screen and (max-width:767px) {
+    #accordian {
+        z-index: 99;
+        position: fixed;
+        font-size: 18px;
+        left: -100%;
+        top: 90px;
+        transition: 1s;
+    }
+    .container-ques {
+        width: 100%;
+        margin: 0px 0px auto 0px;
+        padding: 10px 10px;
+    }
+    .card-ques {
+        font-size: 15px;
+        margin-bottom: 100px;
+    }
+    .card-ques .element {
+        padding: 10px 5px;
+    }
+    .hide-btn {
+        display: inline;
+    }
+    .vertical.btn {
+        margin-top: 10px;
+        display: inline;
+    }
+    .hide-vertical-btn {
+        display: inline;
+    }
+    #hide-btn:checked~#accordian {
+        left: 0px;
+    }
+}

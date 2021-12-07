@@ -1,0 +1,81 @@
+ {% include "html/navbar.html" %} {% block content %} {% load static %}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="{%  static  'css/quizhome.css'  %}">
+<input type="checkbox" id="hide-btn">
+<label for="hide-btn" class="vertical btn"><i class="fas fa-filter"></i></label>
+<div id="accordian" class="accordian">
+    <label for="hide-btn" class="hide-btn"><i class="fas fa-times"></i></label>
+    <ul class="show-dropdown main-navbar">
+        <li>
+            <a href="/Quiz/scoreboard"><i class="fa"></i>Bảng xếp hạng</a>
+        </li>
+        <div class="hr-line"></div>
+        <li id="tat-ca-cau-hoi">
+            <form method="GET" id="allques" class="allform" style="display: none;">
+                <input name="q" type="hidden" value="tat-ca-cau-hoi">
+            </form>
+            <a href="#" onclick="document.getElementById('allques').submit()"><i class="fa"></i>Tất cả câu hỏi</a>
+        </li>
+        <li id="tra-loi-dung">
+            <form method="GET" id="correctques" class="allform">
+                <input name="q" type="hidden" value="tra-loi-dung">
+            </form>
+            <a href="#" onclick="document.getElementById('correctques').submit()"><i class="fa"></i>Trả lời đúng</a>
+        </li>
+        <li id="tra-loi-sai">
+            <form method="GET" id='incorretques' class="allform">
+                <input name="q" type="hidden" value="tra-loi-sai">
+            </form>
+            <a href="#" onclick="document.getElementById('incorretques').submit()"><i class="fa"></i>Trả lời sai</a>
+        </li>
+        <li id="bat-dau-quiz">
+            <form method="GET" id='start' class="all-form">
+                <input name="q" type="hidden" value="bat-dau-quiz">
+            </form>
+            <a href="#" onclick="document.getElementById('start').submit()"><i class="fa"></i>Bắt đầu quiz</a>
+        </li>
+
+    </ul>
+</div>
+<div class="container-ques ">
+    <div class="card-ques">
+        <form method='post' action=''>
+            {% csrf_token %} {% for q in questions%}
+            <div class="element">
+                <div class="form-group">
+                    <label for="question">{{q.question}}</label>
+                </div>
+                <div class="form-check ">
+                    <div class="form-check ">
+                        <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios1" value="{{ q.op1 }}">
+                        <label class="form-check-label" for="gridRadios1">
+                {{q.op1}}
+            </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios2" value="{{ q.op2 }}">
+                        <label class="form-check-label" for="gridRadios2 ">
+                {{q.op2}}
+            </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios1" value="{{ q.op3 }}">
+                        <label class="form-check-label" for="gridRadios1">
+                {{q.op3}}
+            </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="{{q.question}}" id="gridRadios2" value="{{ q.op4 }}">
+                        <label class="form-check-label" for="gridRadios2">
+                {{q.op4}}
+            </label>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary" id="submitbtn">Submit</button>
+        </form>
+        <script src="{% static 'js/quiz.js '%}"></script>
+    </div>
+</div>
+{% endblock %} {% include "html/footer.html" %}

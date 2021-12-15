@@ -16,7 +16,7 @@
                                     </div>
 
                                     <form method="POST">
-                                        {% csrf_token %} {% for key, value in form.errors.items %} {{value}} {% endfor %}
+                                        {% csrf_token %}
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Tên đăng nhập</label> {{form.username}}
                                         </div>
